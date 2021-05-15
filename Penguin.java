@@ -26,6 +26,7 @@ public class Penguin extends Bird implements Swim {
      * dives, must be on ground
      */
     @Override
+    // plonger
     public void dive() {
         if (!this.swimming && this.depths == 0) {
             this.swimming = true;
