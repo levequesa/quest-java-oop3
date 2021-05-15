@@ -1,4 +1,4 @@
-public class Eagle extends Bird {
+public class Eagle extends Bird implements Fly {
 
     private boolean flying;
     private int altitude;
@@ -21,7 +21,8 @@ public class Eagle extends Bird {
     public String sing() {
         return "Screech!";
     }
-
+    
+    @Override
 	public void takeOff() {
 		if (!this.flying && this.altitude == 0) {
 			this.flying=true;
@@ -29,6 +30,7 @@ public class Eagle extends Bird {
 		}
 	}
 
+    @Override
 	public void ascend(int metre) {
 		if (this.flying) {
 			this.altitude += metre;
@@ -36,6 +38,7 @@ public class Eagle extends Bird {
 		}
 	}
 	
+    @Override
 	public void descend(int metre) {
 		if (this.flying) {
 			this.altitude = Math.max(this.altitude - metre, 0);
@@ -47,6 +50,7 @@ public class Eagle extends Bird {
 		}
 	}
 
+    @Override
 	public void glide() {
 		// planer
 		if (this.flying && this.altitude !=0 ) {
@@ -54,6 +58,7 @@ public class Eagle extends Bird {
 		}
 	}
 
+    @Override
 	public void land() {
 		// terre
 		if ( (!this.flying && this.altitude ==0 ) || (this.flying && this.altitude <2) ) {
